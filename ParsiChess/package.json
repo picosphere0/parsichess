@@ -1,0 +1,18 @@
+{
+  "name": "parsichess",
+  "version": "1.0.0",
+  "description": "a chess app for iranians",
+  "main": "public/index.html",
+  "scripts": {
+    "test": "npx tailwindcss -i ./src/assets/styles/input.css -o ./src/assets/styles/output.css --watch"
+  },
+  "keywords": [
+    "chess",
+    "parsichess"
+  ],
+  "author": "parsa batani, M mehdi farsi",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
