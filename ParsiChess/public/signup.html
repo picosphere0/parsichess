@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - ParsiChess</title>
+    <style>
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .signup-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .google-btn {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin-top: 10px;
+        }
+        .divider {
+            text-align: center;
+            margin: 15px 0;
+        }
+    </style>
+    <script src="https://unpkg.com/pocketbase@0.21.1/dist/pocketbase.umd.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Create Account</h2>
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="displayName">Display Name</label>
+                <input type="text" id="displayName" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit" class="signup-btn">Sign Up</button>
+        </form>
+        
+        <div class="divider">or</div>
+        
+        <button id="googleAuth" class="google-btn">
+            Continue with Google
+        </button>
+        
+        <p>Already have an account? <a href="/login">Login</a></p>
+    </div>
+
+    <script type="module">
+        // Initialize PocketBase directly
+        const pb = new PocketBase('http://127.0.0.1:8090');
+
+        const auth = {
+            async register(email, password, displayName) {
+                try {
+                    const userData = {
+                        email,
+                        password,
+                        passwordConfirm: password,
+                        displayName,
+                        rating: 1200,
+                        gamesPlayed: 0
+                    };
+                    
+                    return await pb.collection('users').create(userData);
+                } catch (error) {
+                    console.error('Registration failed:', error);
+                    throw error;
+                }
+            },
+
+            async login(email, password) {
+                try {
+                    return await pb.collection('users').authWithPassword(email, password);
+                } catch (error) {
+                    console.error('Login failed:', error);
+                    throw error;
+                }
+            },
+
+            async loginWithGoogle() {
+                try {
+                    const authData = await pb.collection('users').authWithOAuth2({ 
+                        provider: 'google'
+                    });
+                    
+                    if (authData.meta?.isNew) {
+                        await pb.collection('users').update(authData.record.id, {
+                            displayName: authData.meta.name || authData.meta.email.split('@')[0],
+                            rating: 1200,
+                            gamesPlayed: 0
+                        });
+                    }
+                    
+                    return authData;
+                } catch (error) {
+                    console.error('Google auth failed:', error);
+                    throw error;
+                }
+            }
+        };
+
+        // Regular signup
+        document.getElementById('signupForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            try {
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+                const displayName = document.getElementById('displayName').value;
+                
+                await auth.register(email, password, displayName);
+                // Auto login after registration
+                await auth.login(email, password);
+                
+                window.location.href = '/dashboard';
+            } catch (error) {
+                alert('Signup failed: ' + error.message);
+            }
+        });
+
+        // Google auth
+        document.getElementById('googleAuth').addEventListener('click', async () => {
+            try {
+                await auth.loginWithGoogle();
+                window.location.href = '/dashboard';
+            } catch (error) {
+                alert('Google auth failed: ' + error.message);
+            }
+        });
+    </script>
+</body>
+</html> 

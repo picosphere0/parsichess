@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parsichess || پارسی چس</title>
+  <link rel="stylesheet" href="../src/assets/styles/output.css">
+</head>
+
+<body class="bg-background">
+  <nav class="flex justify-between items-center p-4   text-text relative">
+    <!-- Logo -->
+    <div class="logo">
+        <a href="index.html" class="text-5xl font-bold">ParsiChess</a>
+    </div>
+
+    <!-- Hamburger Menu Button (Mobile Only) -->
+    <button id="menuBtn" class="block md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+            </path>
+        </svg>
+    </button>
+
+    <!-- Desktop Navigation -->
+    <div class="hidden md:flex items-center gap-8">
+        <a href="howto.html" class="hover:text-primary">چگونه بازی کنم؟</a>
+        <a href="About us.html" class="hover:text-primary">درباره ما</a>
+        <button class="bg-primary text-text px-4 py-2 rounded-md hover:bg-secondary transition">
+            ورود / ثبت نام
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu"
+        class="hidden absolute right-0 top-16   border border-primary rounded-lg shadow-lg w-48 text-right md:hidden">
+        <ul class="text-text py-2">
+            <li class="px-4 py-2 hover:bg-primary/10"><a href="#" class="block hover:text-primary">چگونه بازی
+                    کنم؟</a></li>
+            <li class="px-4 py-2 hover:bg-primary/10"><a href="#" class="block hover:text-primary">درباره ما</a>
+            </li>
+            <li class="px-4 py-2 hover:bg-primary/10"><a href="#" class="block hover:text-primary">ورود / ثبت
+                    نام</a></li>
+        </ul>
+    </div>
+</nav>
+
+  <section class="text-text text-center text-3xl mx-56 mb-56">
+    <h2 class="text-5xl">درباره ما</h2>
+    <p>
+      ما، پارسا و مهدی، دو دوست علاقه‌مند به شطرنج هستیم که از پلتفرم‌های شطرنج معروفی همچون چس دات کام و لی چس الهام
+      گرفتیم. هدف ما این بود که وب‌سایتی بسازیم که تجربه‌ای حرفه‌ای و لذت‌بخش از بازی شطرنج را برای کاربران فارسی‌زبان
+      فراهم کند.
+    </p>
+    <p>
+      وب‌سایت "پارسی‌چس" با عشق به شطرنج و تمرکز بر جامعه فارسی‌زبان طراحی شده است. امکاناتی مانند بازی آنلاین،
+      آموزش‌های شطرنج و چالش‌های روزانه را برای کاربران خود فراهم کرده‌ایم.
+    </p>
+    <p>
+      ما امیدواریم که "پارسی‌چس" به محلی تبدیل شود که بازیکنان مبتدی و حرفه‌ای بتوانند یاد بگیرند، پیشرفت کنند و از بازی
+      شطرنج لذت ببرند.
+    </p>
+  </section>
+
+  <section class="members flex flex-row justify-center gap-20">
+    <div class="text-center text-gray-500 dark:text-gray-400 hover:scale-110 transition">
+      <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="../src/assets/images/ParsaProfile.jfif" alt="Bonnie Avatar">
+      <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <a href="#">پارسا باطانی</a>
+      </h3>
+      <p>برنامه نویس</p>
+
+    </div>
+    <div class="text-center text-gray-500 dark:text-gray-400 hover:scale-110 transition">
+      <img class="mx-auto mb-4 w-36 h-36 rounded-full" src="../src/assets/images/FarsiProfile.jpg" alt="Bonnie Avatar">
+      <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <a href="#">محمد مهدی فارسی</a>
+      </h3>
+      <p>بازیکن شطرنج حرفه ای</p>
+
+    </div>
+  </section>
+
+  <footer class="flex justify-between items-center p-4   text-text relative m-5">
+    <!-- Logo -->
+    <div class="logo">
+        <a href="./index.html" class="text-2xl font-bold">ParsiChess</a>
+    </div>
+
+    <!-- Links -->
+    <div class="md:flex items-center gap-8 flex-row ">
+        <a href="howto.html" class="hover:text-primary">چگونه بازی کنم؟</a>
+        <a href="About us.html" class="hover:text-primary">درباره ما</a>
+        <div class="text-sm">© 2025 ParsiChess</div>
+    </div>
+</footer>
+<script>
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+</script>
+
+</html>

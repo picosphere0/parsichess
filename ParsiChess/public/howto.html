@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>چگونه بازی کنیم؟ || ParsiChess</title>
+    <link rel="stylesheet" href="../src/assets/styles/output.css">
+</head>
+
+<body class="bg-background text-text relative">
+    <!-- Navigation (same as index.html) -->
+    <nav class="flex justify-between items-center p-4 text-text relative">
+        <div class="logo">
+            <a href="index.html" class="text-5xl font-bold">ParsiChess</a>
+        </div>
+
+        <button id="menuBtn" class="block md:hidden focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+
+        <div class="hidden md:flex items-center gap-8">
+            <a href="howto.html" class="hover:text-primary">چگونه بازی کنم؟</a>
+            <a href="About us.html" class="hover:text-primary">درباره ما</a>
+            <button class="bg-primary text-text px-4 py-2 rounded-md hover:bg-secondary transition">
+                ورود / ثبت نام
+            </button>
+        </div>
+
+        <div id="mobileMenu"
+            class="hidden absolute right-0 top-16 border border-primary rounded-lg shadow-lg w-48 text-right md:hidden">
+            <ul class="text-text py-2">
+                <li class="px-4 py-2 hover:bg-primary/10"><a href="howto.html" class="block hover:text-primary">چگونه بازی کنم؟</a></li>
+                <li class="px-4 py-2 hover:bg-primary/10"><a href="About us.html" class="block hover:text-primary">درباره ما</a></li>
+                <li class="px-4 py-2 hover:bg-primary/10"><a href="#" class="block hover:text-primary">ورود / ثبت نام</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold text-center mb-12">آموزش شطرنج</h1>
+
+        <!-- Basic Rules Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-primary">قوانین اولیه</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-6 border border-primary rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4">چیدمان اولیه</h3>
+                    <p class="text-lg mb-4">صفحه شطرنج از ۶۴ خانه سیاه و سفید تشکیل شده است. مهره‌های هر بازیکن به این ترتیب چیده می‌شوند:</p>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li>ردیف اول: رخ، اسب، فیل، وزیر، شاه، فیل، اسب، رخ</li>
+                        <li>ردیف دوم: هشت سرباز</li>
+                    </ul>
+                </div>
+                <div class="p-6 border border-primary rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4">هدف بازی</h3>
+                    <p class="text-lg">هدف اصلی در شطرنج، مات کردن شاه حریف است. این اتفاق زمانی می‌افتد که:</p>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li>شاه حریف در معرض حمله باشد (کیش)</li>
+                        <li>هیچ راه فراری برای شاه وجود نداشته باشد</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pieces Movement Section -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-primary">حرکت مهره‌ها</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 border border-primary rounded-lg hover:bg-primary/10 transition-colors">
+                    <h3 class="text-2xl font-bold mb-4">سرباز</h3>
+                    <p class="text-lg">سرباز فقط به جلو حرکت می‌کند. در حرکت اول می‌تواند دو خانه جلو برود. برای حمله، می‌تواند به صورت مورب یک خانه جلو برود.</p>
+                </div>
+                <div class="p-6 border border-primary rounded-lg hover:bg-primary/10 transition-colors">
+                    <h3 class="text-2xl font-bold mb-4">رخ</h3>
+                    <p class="text-lg">رخ می‌تواند در خطوط افقی و عمودی به هر تعداد خانه حرکت کند، اما نمی‌تواند از روی مهره‌های دیگر بپرد.</p>
+                </div>
+                <div class="p-6 border border-primary rounded-lg hover:bg-primary/10 transition-colors">
+                    <h3 class="text-2xl font-bold mb-4">اسب</h3>
+                    <p class="text-lg">اسب به شکل L حرکت می‌کند: دو خانه در یک جهت و سپس یک خانه به صورت عمود. تنها مهره‌ای است که می‌تواند از روی مهره‌های دیگر بپرد.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Advanced Concepts -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold mb-8 text-primary">مفاهیم پیشرفته</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-6 border border-primary rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4">حرکات ویژه</h3>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li>قلعه‌گیری: حرکت همزمان شاه و رخ</li>
+                        <li>حرکت آن پاسان: گرفتن سرباز حریف در حین عبور</li>
+                        <li>ارتقاء سرباز: تبدیل سرباز به مهره‌ای دیگر</li>
+                    </ul>
+                </div>
+                <div class="p-6 border border-primary rounded-lg">
+                    <h3 class="text-2xl font-bold mb-4">پایان بازی</h3>
+                    <ul class="list-disc list-inside space-y-2 text-lg">
+                        <li>مات: پیروزی کامل</li>
+                        <li>پات: مساوی به دلیل عدم امکان حرکت</li>
+                        <li>تساوی با توافق طرفین</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="flex justify-between items-center p-4 text-text relative m-5">
+        <div class="logo">
+            <a href="./index.html" class="text-2xl font-bold">ParsiChess</a>
+        </div>
+        <div class="md:flex items-center gap-8 flex-row">
+            <a href="howto.html" class="hover:text-primary">چگونه بازی کنم؟</a>
+            <a href="About us.html" class="hover:text-primary">درباره ما</a>
+            <div class="text-sm">© 2025 ParsiChess</div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>

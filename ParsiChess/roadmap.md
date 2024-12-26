@@ -1,20 +1,20 @@
 # Chess Application Development Roadmap
 
 ## Phase 1: Project Setup (Week 1)
-- [ ] Initialize project structure
+- [🟩] Initialize project structure
   - Set up Git repository
   - Create folder structure
   - Initialize npm project
-- [ ] Configure Tailwind CSS
+- [🟩] Configure Tailwind CSS
   - Install dependencies
   - Create configuration file
   - Set up build process
-- [ ] Set up PocketBase
+- [🟩] Set up PocketBase
   - Download and install PocketBase
   - Configure initial admin account
   - Set up development environment
   - Configure CORS settings
-- [ ] Create basic HTML templates
+- [🟩] Create basic HTML templates
   - Layout components
   - Navigation structure
   - Responsive design setup
